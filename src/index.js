@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import '@fontsource/prompt'; // นำเข้า Regular (400)
+import '@fontsource/prompt/700.css'; // นำเข้า Bold (700)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
