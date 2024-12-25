@@ -1,73 +1,101 @@
 import React, { useState } from "react";
 
-const Sidebar = ({ onPageChange }) => {
-  const [activeMenu, setActiveMenu] = useState("dashboard");
+const Sidebar = () => {
+  const [activeMenu, setActiveMenu] = useState("home");
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
-    onPageChange(menu);
   };
 
   const renderNavItems = () => (
     <ul className="nav flex-column">
       <li className="nav-item">
-        <button
-          className={`nav-link text-white border-0 bg-transparent w-100 text-start ${
-            activeMenu === "dashboard" ? "active" : ""
-          }`}
-          onClick={() => handleMenuClick("dashboard")}
+        <a
+          href="#home"
+          className={`nav-link text-white ${activeMenu === "home" ? "active" : ""}`}
+          onClick={() => handleMenuClick("home")}
         >
           <i className="fas fa-home me-2"></i> หน้าหลัก
-        </button>
+        </a>
       </li>
       <li className="nav-item">
-        <button
-          className={`nav-link text-white border-0 bg-transparent w-100 text-start ${
-            activeMenu === "subjects" ? "active" : ""
-          }`}
+        <a
+          href="#subjects"
+          className={`nav-link text-white ${activeMenu === "subjects" ? "active" : ""}`}
           onClick={() => handleMenuClick("subjects")}
         >
           <i className="fas fa-book me-2"></i> รายวิชา
-        </button>
+        </a>
       </li>
       <li className="nav-item">
-        <button
-          className={`nav-link text-white border-0 bg-transparent w-100 text-start ${
-            activeMenu === "grades" ? "active" : ""
-          }`}
-          onClick={() => handleMenuClick("grades")}
+        <a
+          href="#results"
+          className={`nav-link text-white ${activeMenu === "results" ? "active" : ""}`}
+          onClick={() => handleMenuClick("results")}
         >
-          <i className="fas fa-chart-line me-2"></i> ผลการเรียน
-        </button>
+          <i className="fas fa-chart-bar me-2"></i> ผลการเรียน
+        </a>
       </li>
-      <li className="nav-item mt-auto">
-        <button
-          className={`nav-link text-white border-0 bg-transparent w-100 text-start ${
-            activeMenu === "logout" ? "active" : ""
-          }`}
+      <li className="nav-item">
+        <a
+          href="#logout"
+          className={`nav-link text-white ${activeMenu === "logout" ? "active" : ""}`}
           onClick={() => handleMenuClick("logout")}
         >
           <i className="fas fa-sign-out-alt me-2"></i> ออกจากระบบ
-        </button>
+        </a>
       </li>
     </ul>
   );
 
-  return (
-    <div className="sidebar d-flex flex-column vh-100 bg-dark text-white">
-      <div className="p-3">
-        <div className="profile-section text-center mb-3">
-          <img
-            src="https://via.placeholder.com/80"
-            alt="Student"
-            className="rounded-circle mb-3"
-          />
-          <h6 className="mb-1">ระบบติดตามพฤติกรรมและผลการเรียน</h6>
-        </div>
-        <hr className="text-white-50" />
-        {renderNavItems()}
-      </div>
+  const renderProfileSection = () => (
+    <div className="text-center mb-3">
+      <img
+        src="https://via.placeholder.com/50"
+        alt="User"
+        className="rounded-circle"
+      />
+      <p className="mt-2 mb-0">ระบบติดตามพฤติกรรมและผลการเรียน</p>
     </div>
+  );
+
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <div
+        className="d-none d-md-flex flex-column vh-100 bg-dark text-white"
+        style={{ width: "300px", maxWidth: "350px" }}
+      >
+        <div className="p-3">
+          {renderProfileSection()}
+          <hr className="text-white" />
+          {renderNavItems()}
+        </div>
+      </div>
+
+      {/* Mobile Offcanvas Sidebar */}
+      <div
+        className="offcanvas offcanvas-start bg-dark text-white"
+        tabIndex="-1"
+        id="sidebarOffcanvas"
+        aria-labelledby="sidebarOffcanvasLabel"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="sidebarOffcanvasLabel">เมนู</h5>
+          <button
+            type="button"
+            className="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="offcanvas-body">
+          {renderProfileSection()}
+          <hr className="text-white" />
+          {renderNavItems()}
+        </div>
+      </div>
+    </>
   );
 };
 
