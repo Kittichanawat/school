@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
+import DashboardCharts from "./components/dashboard/DashboardCharts";
 import './App.css';
 
 function App() {
@@ -17,48 +18,58 @@ function App() {
       <div className="flex-grow-1 d-flex flex-column">
         <Topbar toggleSidebar={toggleSidebar} />
         
-        <div className="content flex-grow-1">
+        <div className="content flex-grow-1 p-4">
+          <div className="dashboard-header mb-4">
+            <h4 className="mb-0">
+              <i className="fas fa-tachometer-alt me-2 text-primary"></i>
+              <span className="text-dark">แดชบอร์ด</span>
+            </h4>
+            <p className="text-muted mt-2 mb-0">ยินดีต้อนรับสู่ระบบจัดการข้อมูลนักเรียน</p>
+          </div>
+          
           <div className="row g-4">
-            <div className="col-12">
-              <h1 className="h4 mb-4">แดชบอร์ด</h1>
-            </div>
-            
             <div className="col-md-6 col-lg-3">
-              <div className="card border-0 shadow-sm">
-                <div className="card-body">
-                  <h5 className="card-title">จำนวนรายวิชา</h5>
-                  <p className="card-text h2">8</p>
+              <div className="card border-0 shadow-sm card-gradient card-primary">
+                <div className="card-body position-relative">
+                  <h5 className="card-title">ขาดเรียนวันนี้</h5>
+                  <p className="card-text h2">3</p>
+                  <i className="fas fa-user-times stat-icon"></i>
                 </div>
               </div>
             </div>
             
             <div className="col-md-6 col-lg-3">
-              <div className="card border-0 shadow-sm">
-                <div className="card-body">
-                  <h5 className="card-title">เกรดเฉลี่ย</h5>
-                  <p className="card-text h2">3.50</p>
+              <div className="card border-0 shadow-sm card-gradient card-danger">
+                <div className="card-body position-relative">
+                  <h5 className="card-title">ขาดเรียนบ่อย</h5>
+                  <p className="card-text h2">5</p>
+                  <i className="fas fa-user-alt-slash stat-icon"></i>
                 </div>
               </div>
             </div>
             
             <div className="col-md-6 col-lg-3">
-              <div className="card border-0 shadow-sm">
-                <div className="card-body">
-                  <h5 className="card-title">การเข้าเรียน</h5>
-                  <p className="card-text h2">95%</p>
+              <div className="card border-0 shadow-sm card-gradient card-success">
+                <div className="card-body position-relative">
+                  <h5 className="card-title">มาเรียนวันนี้</h5>
+                  <p className="card-text h2">30</p>
+                  <i className="fas fa-user-check stat-icon"></i>
                 </div>
               </div>
             </div>
             
             <div className="col-md-6 col-lg-3">
-              <div className="card border-0 shadow-sm">
-                <div className="card-body">
-                  <h5 className="card-title">กิจกรรม</h5>
+              <div className="card border-0 shadow-sm card-gradient card-info">
+                <div className="card-body position-relative">
+                  <h5 className="card-title">มาสาย</h5>
                   <p className="card-text h2">12</p>
+                  <i className="fas fa-user-clock stat-icon"></i>
                 </div>
               </div>
             </div>
           </div>
+
+          <DashboardCharts />
         </div>
       </div>
     </div>

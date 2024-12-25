@@ -12,16 +12,8 @@
 
 /* ปรับแต่ง Sidebar */
 .sidebar {
-  width: 240px;
-  min-height: 100vh;
-  background: #343a40;
+  background: linear-gradient(to bottom, #343a40, #212529);
   color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  overflow-y: auto;
-  z-index: 1000;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -44,42 +36,28 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-.content {
-  margin-left: 240px;
-  background: #f8f9fc;
-  padding: 20px;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .sidebar.show {
-    transform: translateX(0);
+  to {
+    transform: rotate(360deg);
   }
-  
-  .content {
-    margin-left: 0;
-  }
-}
-
-/* ปรับแต่ง Charts */
-.recharts-default-tooltip {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border: none !important;
-  border-radius: 8px !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-  padding: 12px !important;
-}
-
-.recharts-legend-item {
-  font-size: 0.9rem !important;
-}
-
-.recharts-pie-label-text {
-  font-weight: 500 !important;
 }
 
 .offcanvas {
@@ -98,6 +76,42 @@
 
 .topbar {
   height: 60px;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.topbar .dropdown-menu {
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topbar .dropdown-item {
+  padding: 8px 16px;
+}
+
+.topbar .dropdown-item:hover {
+  background-color: #f8f9fa;
+}
+
+.topbar .dropdown-item i {
+  width: 20px;
+}
+
+.topbar img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
+
+/* Animation for notifications */
+@keyframes notification-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.topbar .badge {
+  animation: notification-pulse 2s infinite;
 }
 
 /* ปรับแต่ง Navigation Items */
@@ -127,6 +141,7 @@
 .topbar {
   height: 70px;
   background: linear-gradient(to right, #f8f9fa, #ffffff);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .topbar button {
@@ -142,7 +157,7 @@
 
 /* ปรับแต่ง Main Content */
 .content {
-  background-color: #f8f9fa;
+  background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
   border-radius: 12px;
   margin: 16px;
   padding: 24px !important;
@@ -213,5 +228,127 @@
 
 .topbar .badge {
   animation: notification-pulse 2s infinite;
+}
+
+/* ปรับแต่ง Cards */
+.card {
+  transition: box-shadow 0.2s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.card-text.h2 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* ปรับแต่ง Content Area */
+.content {
+  background-color: var(--light-color);
+  padding: 1.5rem !important;
+}
+
+/* ปรับแต่ง Dashboard Header */
+.dashboard-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-header h4 {
+  color: var(--dark-color);
+  font-weight: 700;
+}
+
+/* ปรับแต่ง Card Icons */
+.stat-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+/* ปรับแต่ง Card Variants */
+.card-primary {
+  background: linear-gradient(45deg, #4e73df, #6f86e0);
+}
+
+.card-success {
+  background: linear-gradient(45deg, #1cc88a, #2dcea5);
+}
+
+.card-info {
+  background: linear-gradient(45deg, #36b9cc, #4dc8d8);
+}
+
+.card-warning {
+  background: linear-gradient(45deg, #f6c23e, #f8cd60);
+}
+
+.card-gradient .card-title,
+.card-gradient .card-text {
+  color: white !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem !important;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+}
+
+/* ปรับแต่ง Headers */
+h1, h5 {
+  color: #4e73df; /* Primary color for headers */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ปรับแต่ง Buttons */
+button {
+  background-color: #4e73df;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #375a7f;
+  transform: scale(1.05);
+}
+
+/* ปรับแต่ง Links */
+a {
+  color: #36b9cc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1cc88a;
 }
 
