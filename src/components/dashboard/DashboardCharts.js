@@ -9,13 +9,13 @@ import {
 const DashboardCharts = () => {
   // ข้อมูลสำหรับกราฟแท่ง
   const barData = [
-    { date: '25 มี.ค.', present: 32, late: 2, absent: 1 },
-    { date: '26 มี.ค.', present: 30, late: 3, absent: 2 },
-    { date: '27 มี.ค.', present: 31, late: 1, absent: 1 },
-    { date: '28 มี.ค.', present: 29, late: 4, absent: 2 },
-    { date: '29 มี.ค.', present: 32, late: 1, absent: 0 },
-    { date: '1 เม.ย.', present: 30, late: 2, absent: 1 },
-    { date: '2 เม.ย.', present: 31, late: 1, absent: 1 },
+    { date: '25 มี.ค.', มาเรียน: 32, มาสาย: 2, ขาดเรียน: 1, ลา: 1 },
+    { date: '26 มี.ค.', มาเรียน: 30, มาสาย: 3, ขาดเรียน: 2, ลา: 0 },
+    { date: '27 มี.ค.', มาเรียน: 31, มาสาย: 1, ขาดเรียน: 1, ลา: 1 },
+    { date: '28 มี.ค.', มาเรียน: 29, มาสาย: 4, ขาดเรียน: 2, ลา: 0 },
+    { date: '29 มี.ค.', มาเรียน: 32, มาสาย: 1, ขาดเรียน: 0, ลา: 1 },
+    { date: '1 เม.ย.', มาเรียน: 30, มาสาย: 2, ขาดเรียน: 1, ลา: 0 },
+    { date: '2 เม.ย.', มาเรียน: 31, มาสาย: 1, ขาดเรียน: 1, ลา: 1 },
   ];
 
   // ข้อมูลสำหรับกราฟวงกลม
@@ -46,9 +46,10 @@ const DashboardCharts = () => {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="present" fill="#4e73df" />
-                  <Bar dataKey="late" fill="#f6c23e" />
-                  <Bar dataKey="absent" fill="#e74a3b" />
+                  <Bar dataKey="มาเรียน" fill="#4e73df" />
+                  <Bar dataKey="มาสาย" fill="#f6c23e" />
+                  <Bar dataKey="ขาดเรียน" fill="#e74a3b" />
+                  <Bar dataKey="ลา" fill="#36b9cc" />
                 </BarChart>
               </ResponsiveContainer>
             </div>
