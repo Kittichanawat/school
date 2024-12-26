@@ -12,10 +12,14 @@
 
 /* ปรับแต่ง Sidebar */
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  z-index: 1000;
   background: linear-gradient(to bottom, #343a40, #212529);
-  color: white;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  overflow-y: auto;
 }
 
 /* ปรับแต่ง Profile Section */
@@ -75,9 +79,11 @@
 }
 
 .topbar {
-  height: 60px;
-  background: linear-gradient(to right, #f8f9fa, #ffffff);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: white;
 }
 
 .topbar .dropdown-menu {
@@ -140,8 +146,10 @@
 /* ปรับแต่ง Topbar */
 .topbar {
   height: 70px;
-  background: linear-gradient(to right, #f8f9fa, #ffffff);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: white;
 }
 
 .topbar button {
@@ -157,11 +165,8 @@
 
 /* ปรับแต่ง Main Content */
 .content {
-  background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
-  border-radius: 12px;
-  margin: 16px;
-  padding: 24px !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  min-height: calc(100vh - 70px); /* ลบความสูงของ Topbar */
+  background-color: #f8f9fc;
 }
 
 /* Custom Scrollbar */
@@ -350,5 +355,19 @@ a {
 
 a:hover {
   color: #1cc88a;
+}
+
+/* เพิ่ม CSS สำหรับ layout */
+.main-content {
+  margin-left: 300px;
+  min-height: 100vh;
+  width: calc(100% - 300px);
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 

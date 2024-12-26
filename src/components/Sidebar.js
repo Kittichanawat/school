@@ -36,7 +36,7 @@ const Sidebar = () => {
           <i className="fas fa-chart-bar me-2"></i> ผลการเรียน
         </a>
       </li>
-      <li className="nav-item">
+      <li className="nav-item mt-auto">
         <a
           href="#logout"
           className={`nav-link text-white ${activeMenu === "logout" ? "active" : ""}`}
@@ -63,13 +63,24 @@ const Sidebar = () => {
     <>
       {/* Desktop Sidebar */}
       <div
-        className="d-none d-md-flex flex-column vh-100 bg-dark text-white"
-        style={{ width: "300px", maxWidth: "350px" }}
+        className="sidebar d-none d-md-block"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          width: '300px',
+          backgroundColor: '#343a40',
+          color: 'white',
+          overflowY: 'auto'
+        }}
       >
         <div className="p-3">
           {renderProfileSection()}
           <hr className="text-white" />
-          {renderNavItems()}
+          <div className="d-flex flex-column justify-content-between" style={{ height: 'calc(100vh - 200px)' }}>
+            {renderNavItems()}
+          </div>
         </div>
       </div>
 
