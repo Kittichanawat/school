@@ -371,3 +371,55 @@ a:hover {
   }
 }
 
+/* ซ่อน submenu โดยค่าเริ่มต้น */
+.submenu {
+  display: none;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+/* แสดง submenu เมื่อมี class show */
+.submenu.show {
+  display: block;
+}
+
+/* Animation สำหรับ chevron icon */
+.fa-chevron-up,
+.fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+/* ปรับแต่ง submenu items */
+.submenu .nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.submenu .nav-link:hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+/* ปรับแต่ง BehaviorRecord */
+.behavior-record .table th,
+.behavior-record .table td {
+  padding: 0.75rem;
+  vertical-align: middle;
+}
+
+.behavior-record .form-check-input {
+  cursor: pointer;
+}
+
+.behavior-record .table-responsive {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.behavior-record .btn-outline-success:hover,
+.behavior-record .btn-success {
+  color: white;
+}
