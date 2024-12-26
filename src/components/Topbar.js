@@ -5,7 +5,7 @@ const Topbar = ({ toggleSidebar }) => {
     <div className="topbar bg-white d-flex align-items-center justify-content-between px-4 shadow-sm">
       <div className="d-flex align-items-center">
         <button
-          className="btn btn-light d-md-none me-3"
+          className="btn btn-light d-md-none me-2"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#sidebarOffcanvas"
@@ -15,13 +15,15 @@ const Topbar = ({ toggleSidebar }) => {
         </button>
         <div className="d-flex align-items-center">
           <i className="fas fa-graduation-cap fs-4 text-primary me-2"></i>
-          <h5 className="mb-0">ระบบจัดการข้อมูลนักเรียน</h5>
+          {/* ปรับขนาดตัวอักษรตามขนาดหน้าจอ */}
+          <h5 className="mb-0 d-none d-md-block">ระบบจัดการข้อมูลนักเรียน</h5>
+          <h6 className="mb-0 d-md-none">ระบบจัดการข้อมูล</h6>
         </div>
       </div>
 
       <div className="d-flex align-items-center">
         {/* Notifications */}
-        <div className="dropdown me-3">
+        <div className="dropdown me-2 me-md-3">
           <button
             className="btn btn-light position-relative"
             type="button"
@@ -57,7 +59,8 @@ const Topbar = ({ toggleSidebar }) => {
               alt="User"
               className="rounded-circle me-2"
             />
-            <span className="me-2">นายทดสอบ ระบบ</span>
+            {/* ซ่อนชื่อบนมือถือ แสดงเฉพาะรูป */}
+            <span className="me-2 d-none d-md-inline">นายทดสอบ ระบบ</span>
             <i className="fas fa-chevron-down"></i>
           </button>
           <ul className="dropdown-menu dropdown-menu-end">
